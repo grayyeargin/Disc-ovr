@@ -2,4 +2,12 @@
 <p>Cool</p>
 
 
-
+<% @events.each do |event| %>
+	<div>
+		<img src="<%= event[:image] %>" alt="event image">  
+		<p><%= event[:title] %></p>
+		<p><%= event[:perfomer] %></p>
+		<p><%= event[:venue] %></p>
+		<p><%= event[:time] %></p>
+	</div>
+<% end %>
