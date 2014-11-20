@@ -1,0 +1,9 @@
+<% @events.each do |event| %>
+	<div row=>
+		<img src="<%= event[:image] %>" alt="event image">
+		<p><%= event[:title] %></p>
+		<p><%= event[:performer] %></p>
+		<p><%= event[:venue] %></p>
+		<p><%= event[:time] %></p>
+	</div>
+<% end %>

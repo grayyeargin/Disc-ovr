@@ -1,5 +1,12 @@
 class WelcomeController < ApplicationController
 
+
+
+
+
+
+
+
   def index
     api_response = HTTParty.get('http://api.eventful.com/rest/events/search?app_key=7vwHmZm5RvCdSDtN&location=New+York&q=music&c=concert&page_size=20')
 
@@ -10,9 +17,7 @@ class WelcomeController < ApplicationController
         nil
       end
     end
-
     @events = @all_events.compact
-
   end
 end
 

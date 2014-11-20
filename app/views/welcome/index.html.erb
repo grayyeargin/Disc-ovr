@@ -1,13 +1,23 @@
-<h1>HELLO WORLD!</h1>
-<p>Cool</p>
+<h1>Discover</h1>
 
 
-<% @events.each do |event| %>
-	<div>
-		<img src="<%= event[:image] %>" alt="event image">  
-		<p><%= event[:title] %></p>
-		<p><%= event[:perfomer] %></p>
-		<p><%= event[:venue] %></p>
-		<p><%= event[:time] %></p>
-	</div>
-<% end %>
+<form action="/artist" method="get">
+	<input type="text" name="query" placehoder="Artist Name">
+	<input type="submit" value="Search">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
