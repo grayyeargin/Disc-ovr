@@ -1,3 +1,21 @@
 // Place all the styles related to the artist controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.cover {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    background-size: cover;
+}
+
+.cover:hover {
+    cursor: pointer;
+}
+
+.cover.playing {
+    border: 5px solid #e45343;
+}
+
+
