@@ -38,6 +38,12 @@ class ArtistController < ApplicationController
 		# ////////// MUZU //////////
 		muzu_artist = HTTParty.get("http://api.muzu.tv/api/artist/details/?muzuid=NPhSxOzqs0&aname=#{query}")
 		@muzu_video = muzu_artist["rss"]["channel"]["item"][0]["videoPlayerEmbedTag"]
+		@array_of_muzu_videos = []
+		muzu_artist["rss"]["channel"]["item"].each do |item|
+			@array_of_muzu_videos << item["videoPlayerEmbedTag"]
+		end
+
+
 
 	end
 
