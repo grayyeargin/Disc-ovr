@@ -5,8 +5,17 @@
 # album_api_response = HTTParty.get("https://api.spotify.com/v1/artists/0EmeFodog0BfCgMzAIvKQp/albums")
 # tracks_api_response = HTTParty.get("https://api.spotify.com/v1/albums/6AuyoIozWlAwKtiBWpLgCk")
 
+/******************
+   MUZU VIDEOS
+*******************/
+muzu_artist = HTTParty.get("http://api.muzu.tv/api/artist/details/?muzuid=NPhSxOzqs0&aname=#{query}")
+muzu_artist["rss"]["channel"]["item"][0]["videoPlayerEmbedTag"]
 
+<%= @muzu_video[0].html_safe %>
 
+/******************
+   EVENTS
+*******************/
 
 <% @events.each do |event| %>
 	<div row=>
