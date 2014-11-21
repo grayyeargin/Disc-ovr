@@ -1,3 +1,15 @@
+		# ////////// ALBUM IMAGES AND PLAY BUTTON //////////
+		# album_api_response = HTTParty.get("https://api.spotify.com/v1/artists/#{artist_id}/albums")
+		# albums_sorted = album_api_response["items"].map do |album|
+		# 	{ album_image: album["images"][0]["url"],
+		# 		album_id: album["id"] }
+		# end
+
+
+# albums_sorted_unique = albums_sorted.uniq do |album|
+		# 	album[:album_image]
+		# end
+
 
 
 class ArtistController < ApplicationController
