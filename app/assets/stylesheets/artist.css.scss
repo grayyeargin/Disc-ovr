@@ -1,9 +1,5 @@
 
-
-
 .cover {
-    width: 300px;
-    height: 300px;
     display: inline-block;
     background-size: cover;
 }
@@ -16,4 +12,11 @@
     border: 5px solid #e45343;
 }
 
+.navbar-default {
+	margin-bottom: 3%;
+}
+
+img {
+	border-radius: 3px;
+}
 

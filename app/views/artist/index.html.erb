@@ -1,15 +1,35 @@
-
-<img src="<%= @artist_image %>">
-
-<img src="<%= @album_image %>">
-
-<div id="results">
-	<div>
-		<img src="<%= @album_image %>" data-album-id="<%= @album_id %>" class="cover">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-7">
+			<div>
+				<%= @last_fm_artist_bio.html_safe %>
+			</div>
+		</div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-4">
+			<img src="<%= @artist_image %>" class="img-responsive" alt="responsive image">
+		</div>
 	</div>
-<div>
-<%= @last_fm_artist_bio.html_safe %>
+	<div class="row"><div class="col xs-12"><p>&nbsp;</p></div></div>
+	<div class="row">
+		<div class="col-xs-8">
+		</div>
+		<div id="results" class="col-xs-4">
+			<div class="col">
+				<div class="col-xs-6">
+					<img src="<%= @album_image_0 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_0 %>">
+				</div>
+				<div class="col-xs-6">
+					<img src="<%= @album_image_1 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_1 %>">
+				</div>
+				<div class="col-xs-6">
+					<img src="<%= @album_image_1 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_1 %>">
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
 
 
 

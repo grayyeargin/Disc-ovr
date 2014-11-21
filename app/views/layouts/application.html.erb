@@ -7,6 +7,15 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<%= yield %>
+	<div class="container">
+		<nav class="navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">MusicMap</a>
+				</div>
+			</div>
+		</nav>
+		<%= yield %>
+	</div>
 </body>
 </html>
