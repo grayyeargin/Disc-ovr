@@ -42,3 +42,8 @@ gem 'httparty'
 
 gem 'spotify-client'
 
+gem 'pry'
+
+gem 'youtube_it'
+
+
