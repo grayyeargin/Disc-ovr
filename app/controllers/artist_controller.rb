@@ -32,8 +32,14 @@ class ArtistController < ApplicationController
 		# ////////// YOUTUBE //////////
 		client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
 		artistnamejoined = query.gsub('%20','')
-		youtube_api_response = client.videos_by(:query => "#{query}", :user => "#{artistnamejoined}"+"vevo", :page => 1, :per_page => 1)
-		@youtube_player_url = youtube_api_response.videos[0].unique_id
+
+		youtube_api_response = client.videos_by(:query => "#{query}", :user => "#{artistnamejoined}"+"vevo", :page => 1, :per_page => 10)
+		# @youtube_player_url = youtube_api_response.videos[0].unique_id
+
+		@array_of_youtube_videos = []
+		youtube_api_response.videos.each do |video|
+			@array_of_youtube_videos << video.unique_id
+		end
 
 		# ////////// MUZU //////////
 		muzu_artist = HTTParty.get("http://api.muzu.tv/api/artist/details/?muzuid=NPhSxOzqs0&aname=#{query}")
@@ -42,8 +48,6 @@ class ArtistController < ApplicationController
 		muzu_artist["rss"]["channel"]["item"].each do |item|
 			@array_of_muzu_videos << item["videoPlayerEmbedTag"]
 		end
-
-
 
 	end
 

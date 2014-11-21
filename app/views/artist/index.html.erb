@@ -30,16 +30,20 @@
 	</div>
 </div>
 
-<iframe id="ytplayer" type="text/html" width="640" height="390"
-  src="//www.youtube.com/embed/<%= @youtube_player_url%>"
-  frameborder="0"/>
-</iframe>
 
-
-<% @array_of_muzu_videos.each do |video| %>
-	<%= video.html_safe %>
+<% @array_of_youtube_videos.each do |video| %>
+	<div id="youtube_video" %>
+		<iframe id="ytplayer" type="text/html" width="640" height="390"
+		  src="//www.youtube.com/embed/<%= video %>"
+		  frameborder="0"/>
+		</iframe>
+	</div>	
 <% end %>
 
 
-
+<% @array_of_muzu_videos.each do |video| %>
+	<div id="muzu_video">
+		<%= video.html_safe %>
+	</div>
+<% end %>
 
