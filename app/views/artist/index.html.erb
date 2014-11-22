@@ -1,5 +1,6 @@
+
 <div class="container">
-	<div class="row album-images">
+	<div class="row panel album-images">
 		<div class="col-xs-1">
 			<img src="<%= @album_image_0 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_0 %>">
 		</div>
@@ -38,35 +39,40 @@
 		</div>
 	</div>
 </div>
-
-
 <div class="container">
 	<div class="row">
-		<div class="col xs-12"><p>&nbsp;</p>
+		<div class="col xs-12 margin-rows"><p>&nbsp;</p>
 		</div>
 	</div>
 </div>
 
 <div class="container">
-	<div class="row">
+	<div class="row panel">
 		<div class="col-xs-7">
+			<div>
+				<h1><%= @artist_name %></h1>
+			</div>
 			<div>
 				<%= @last_fm_artist_bio.html_safe %>
 			</div>
 		</div>
 		<div class="col-xs-1"></div>
 		<div class="col-xs-4">
-			<img src="<%= @artist_image %>" class="img-responsive" alt="responsive image">
+			<img src="<%= @artist_image %>" class="img-responsive artist-image" alt="responsive image">
+		</div>
+
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col xs-12 margin-rows"><p>&nbsp;</p>
 		</div>
 	</div>
 </div>
 
 <div class="container">
-	<div class="row"><div class="col xs-12"><p>&nbsp;</p></div></div>
-</div>
-
-<div class="container">
-	<div class="row">
+	<div class="row panel">
 		<div class="col-xs-4">
 			<div class="embed-responsive embed-responsive-4by3">
 				<iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="//www.youtube.com/embed/<%= @video_0 %>"></iframe>
@@ -84,6 +90,16 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 

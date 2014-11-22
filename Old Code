@@ -1,5 +1,25 @@
 
 
+		# youtube_api_response = client.videos_by(:query => "the%20stone%20roses", :user => "thestonerosesvevo", :page => 1, :per_page => )
+
+
+		# end
+
+		# def error
+		# 	if self == "OpenURI::HTTPError: 404"
+		# 	response =
+
+
+
+		# 	case self
+		# 		when "OpenURI::HTTPError: 404"
+		# 			response = "Search Error!"
+		# 		else
+		# 			response = youtube_
+		# 		end
+		# 	end
+		# end
+
 
 
   def index

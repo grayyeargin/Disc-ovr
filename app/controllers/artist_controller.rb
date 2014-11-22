@@ -2,12 +2,13 @@ class ArtistController < ApplicationController
 
 	def index
 
-		# ////////// ARTIST'S SPOTIFY ID //////////
+		# ////////// ARTIST'S SPOTIFY ID & MAIN PHOTO & NAME //////////
 		query = params[:query]
 		query = query.gsub(' ', '%20')
 		artist_api_response = HTTParty.get("https://api.spotify.com/v1/search?q=#{query}&type=artist")
 		@artist_image = artist_api_response["artists"]["items"][0]["images"][0]["url"]
 		artist_id = artist_api_response["artists"]["items"][0]["id"]
+		@artist_name = artist_api_response["artists"]["items"][0]["name"]
 
 		# ////////// ALBUM IMAGES AND PLAY BUTTON //////////
 		album_api_response = HTTParty.get("https://api.spotify.com/v1/artists/#{artist_id}/albums")
@@ -55,9 +56,9 @@ class ArtistController < ApplicationController
 		# ////////// YOUTUBE //////////
 		client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
 		artistnamejoined = query.gsub('%20','')
-
 		youtube_api_response = client.videos_by(:query => "#{query}", :user => "#{artistnamejoined}"+"vevo", :page => 1, :per_page => 3)
-		# @youtube_player_url = youtube_api_response.videos[0].unique_id
+
+
 		array_of_youtube_videos = []
 		youtube_api_response.videos.each do |video|
 			array_of_youtube_videos << video.unique_id
@@ -67,3 +68,4 @@ class ArtistController < ApplicationController
 		end
 	end
 end
+
