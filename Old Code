@@ -1,3 +1,118 @@
+
+
+
+
+  def index
+    api_response = HTTParty.get('http://api.eventful.com/rest/events/search?app_key=7vwHmZm5RvCdSDtN&location=New+York&q=music&c=concert&page_size=20')
+
+    @all_events = api_response["search"]["events"]["event"].map do |event|
+      if !event["image"].nil? && !event["performers"].nil? && !event["performers"]["performer"].is_a?(Array) && !event["venue_name"].nil? && !event["start_time"].nil?
+        {title: event["title"], performer: event["performers"]["performer"]["name"], image: event["image"]["medium"]["url"], venue: event["venue_name"], time: event["start_time"]}
+      else
+        nil
+      end
+    end
+    @events = @all_events.compact
+  end
+end
+
+
+
+
+
+
+
+
+
+/*.row.no-pad {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+.row.no-pad > [class*='col-'] {
+	padding-right: 0;
+	padding-left: 0;
+}*/
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+	<div class="row no-pad">
+		<div class="col-xs-12">
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="col-xs-3">
+						<img src="<%= @album_image_0 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_0 %>">
+					</div>
+					<div class="col-xs-3">
+						<img src="<%= @album_image_1 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_1 %>">
+					</div>
+					<div class="col-xs-3">
+						<img src="<%= @album_image_2 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_2 %>">
+					</div>
+					<div class="col-xs-3">
+						<img src="<%= @album_image_3 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_3 %>">
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="col-xs-3">
+						<img src="<%= @album_image_4 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_4 %>">
+					</div>
+					<div class="col-xs-3">
+						<img src="<%= @album_image_5 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_5 %>">
+					</div>
+					<div class="col-xs-3">
+						<img src="<%= @album_image_6 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_6 %>">
+					</div>
+					<div class="col-xs-3">
+						<img src="<%= @album_image_7 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_7 %>">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-7">
+			<div>
+				<%= @last_fm_artist_bio.html_safe %>
+			</div>
+		</div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-4">
+			<img src="<%= @artist_image %>" class="img-responsive" alt="responsive image">
+		</div>
+	</div>
+</div>
+
+
+<% @array_of_youtube_videos.each do |video| %>
+	<div id="youtube_video" %>
+		<iframe id="ytplayer" type="text/html" width="640" height="390"
+		  src="//www.youtube.com/embed/<%= video %>"
+		  frameborder="0"/>
+		</iframe>
+	</div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
 		# ////////// ALBUM IMAGES AND PLAY BUTTON //////////
 		# album_api_response = HTTParty.get("https://api.spotify.com/v1/artists/#{artist_id}/albums")
 		# albums_sorted = album_api_response["items"].map do |album|
