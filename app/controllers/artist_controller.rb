@@ -15,35 +15,35 @@ class ArtistController < ApplicationController
 		albums_sorted = album_api_response["items"].map do |album|
 			{ album_image: album["images"][0]["url"],
 				album_id: album["id"] }
-		end
-		albums_sorted_unique = albums_sorted.uniq do |album|
-			album[:album_image]
-		end
+			end
+			albums_sorted_unique = albums_sorted.uniq do |album|
+				album[:album_image]
+			end
 
-		@album_image_0 = albums_sorted_unique[0][:album_image]
-		@album_id_0 = albums_sorted_unique[0][:album_id]
-		@album_image_1 = albums_sorted_unique[1][:album_image]
-		@album_id_1 = albums_sorted_unique[1][:album_id]
-		@album_image_2 = albums_sorted_unique[2][:album_image]
-		@album_id_2 = albums_sorted_unique[2][:album_id]
-		@album_image_3 = albums_sorted_unique[3][:album_image]
-		@album_id_3 = albums_sorted_unique[3][:album_id]
-		@album_image_4 = albums_sorted_unique[4][:album_image]
-		@album_id_4 = albums_sorted_unique[4][:album_id]
-		@album_image_5 = albums_sorted_unique[5][:album_image]
-		@album_id_5 = albums_sorted_unique[5][:album_id]
-		@album_image_6 = albums_sorted_unique[6][:album_image]
-		@album_id_6 = albums_sorted_unique[6][:album_id]
-		@album_image_7 = albums_sorted_unique[7][:album_image]
-		@album_id_7 = albums_sorted_unique[7][:album_id]
-		@album_image_8 = albums_sorted_unique[8][:album_image]
-		@album_id_8 = albums_sorted_unique[8][:album_id]
-		@album_image_9 = albums_sorted_unique[9][:album_image]
-		@album_id_9 = albums_sorted_unique[9][:album_id]
-		@album_image_10 = albums_sorted_unique[10][:album_image]
-		@album_id_10 = albums_sorted_unique[10][:album_id]
-		@album_image_11 = albums_sorted_unique[11][:album_image]
-		@album_id_11 = albums_sorted_unique[11][:album_id]
+			@album_image_0 = albums_sorted_unique[0][:album_image]
+			@album_id_0 = albums_sorted_unique[0][:album_id]
+			@album_image_1 = albums_sorted_unique[1][:album_image]
+			@album_id_1 = albums_sorted_unique[1][:album_id]
+			@album_image_2 = albums_sorted_unique[2][:album_image]
+			@album_id_2 = albums_sorted_unique[2][:album_id]
+			@album_image_3 = albums_sorted_unique[3][:album_image]
+			@album_id_3 = albums_sorted_unique[3][:album_id]
+			@album_image_4 = albums_sorted_unique[4][:album_image]
+			@album_id_4 = albums_sorted_unique[4][:album_id]
+			@album_image_5 = albums_sorted_unique[5][:album_image]
+			@album_id_5 = albums_sorted_unique[5][:album_id]
+			@album_image_6 = albums_sorted_unique[6][:album_image]
+			@album_id_6 = albums_sorted_unique[6][:album_id]
+			@album_image_7 = albums_sorted_unique[7][:album_image]
+			@album_id_7 = albums_sorted_unique[7][:album_id]
+			@album_image_8 = albums_sorted_unique[8][:album_image]
+			@album_id_8 = albums_sorted_unique[8][:album_id]
+			@album_image_9 = albums_sorted_unique[9][:album_image]
+			@album_id_9 = albums_sorted_unique[9][:album_id]
+			@album_image_10 = albums_sorted_unique[10][:album_image]
+			@album_id_10 = albums_sorted_unique[10][:album_id]
+			@album_image_11 = albums_sorted_unique[11][:album_image]
+			@album_id_11 = albums_sorted_unique[11][:album_id]
 
 
 
@@ -58,14 +58,53 @@ class ArtistController < ApplicationController
 		artistnamejoined = query.gsub('%20','')
 		youtube_api_response = client.videos_by(:query => "#{query}", :user => "#{artistnamejoined}"+"vevo", :page => 1, :per_page => 3)
 
-
 		array_of_youtube_videos = []
 		youtube_api_response.videos.each do |video|
 			array_of_youtube_videos << video.unique_id
-		@video_0 = array_of_youtube_videos[0]
-		@video_1 = array_of_youtube_videos[1]
-		@video_2 = array_of_youtube_videos[2]
+			@video_0 = array_of_youtube_videos[0]
+			@video_1 = array_of_youtube_videos[1]
+			@video_2 = array_of_youtube_videos[2]
+
+			if array_of_youtube_videos.length < 3
+				@video_0 = "No Video"
+				@video_1 = "No Video"
+				@video_2 = "No Video"
+			end
 		end
 	end
 end
+
+
+
+# //////////////////////////////////////////////////////////////////////////
+# array_of_you_tube_videos = []
+# client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
+# youtube_api_response = client.videos_by(:query => "the%20stone%20roses", :user => "thestoneroses" + "vevo", :page => 1, :per_page => 3)
+# has_videos = youtube_api_response do |reply|
+# 	if reply == "OpenURI::HTTPError: 404"
+# 		array_of_you_
+
+
+# array_of_youtube_videos = []
+# if array_of_youtube_videos.length < 3
+# 	while array_of_youtube_videos < 3
+# 		array_of_youtube_videos << "No Videos!"
+# 	else
+# 		youtube_api_response.videos.each do |video|
+# 			array_of_youtube_videos << video.unique_id
+# 			@video_0 = array_of_youtube_videos[0]
+# 			@video_1 = array_of_youtube_videos[1]
+# 			@video_2 = array_of_youtube_videos[2]
+# 		end
+# 	end
+# end
+		# array_of_youtube_videos = []
+		# youtube_api_response.videos.each do |video|
+		# 	array_of_youtube_videos << video.unique_id
+		# 	@video_0 = array_of_youtube_videos[0]
+		# 	@video_1 = array_of_youtube_videos[1]
+		# 	@video_2 = array_of_youtube_videos[2]
+		# end
+
+
 
