@@ -1,5 +1,7 @@
 class ArtistController < ApplicationController
 
+	include ArtistHelper
+
 	def index
 
 		# ////////// ARTIST'S SPOTIFY ID & MAIN PHOTO & NAME //////////
@@ -66,5 +68,12 @@ class ArtistController < ApplicationController
 		@video_1 = array_of_youtube_videos[1]
 		@video_2 = array_of_youtube_videos[2]
 		end
+
+
+		# ////////// TWITTER DATA //////////
+		twitter_client = Twittersearch.new(query)
+ 		@twitter_results = twitter_client.twitter_query
+
+
 	end
 end

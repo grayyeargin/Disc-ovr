@@ -92,6 +92,29 @@
 </div>
 
 
+<div class="tweets-container">
+    <% @twitter_results.each do |tweet| %>
+        <blockquote class="twitter-tweet">
+
+        <div class="tweet-img-left">
+            <img src="<%= tweet[:user_image] %>" alt="<%= tweet[:user] %>" class="tweet-image">
+        </div>
+
+        <div class="tweet-text-right">
+            <strong class="tweet-user"><%= tweet[:user] %></strong>
+            <span class="user-screen-name">@<%= tweet[:screen_name] %></span>
+            <span>&#8226;</span>
+            <span class="user-screen-name"><%= time_ago_in_words(tweet[:created_at]) %> ago</span>
+            </br>
+            <p><%= tweet[:text] %></p>
+        </div>
+
+
+        </blockquote>
+    <% end %>
+</div>
+
+
 
 
 

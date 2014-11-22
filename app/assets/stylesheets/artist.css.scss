@@ -31,6 +31,83 @@ img {
 }
 
 
+/*tweet display styling*/
+blockquote.twitter-tweet {
+  display: inline-block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+  border-color: #eee #ddd #bbb;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 5px auto;
+  padding: 0 16px 16px 16px;
+  max-width: 468px;
+  background-color: white;
+  color: black;
+}
+ 
+blockquote.twitter-tweet p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+}
+ 
+blockquote.twitter-tweet a {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+  outline: 0 none;
+}
+ 
+blockquote.twitter-tweet a:hover,
+blockquote.twitter-tweet a:focus {
+  text-decoration: underline;
+}
+
+.tweets-container {
+    width: 450px;
+}
+
+
+blockquote.twitter-tweet .user-screen-name {
+font-size: 13px;
+color: #8899a6;
+font-weight: lighter;
+margin-left: 3px;
+}
+
+
+
+blockquote.twitter-tweet h4 {
+    display: inline-block;
+}
+
+blockquote.twitter-tweet img {
+    margin-top: 10px;
+}
+
+blockquote.twitter-tweet .tweet-user {
+font-weight: bold;
+color: #292f33;
+}
+
+blockquote.twitter-tweet .tweet-text-right {
+float: right;
+margin-top: 10px;
+width: 300px;
+
+}
+
+blockquote.twitter-tweet .tweet-img-left {
+float: left;
+width: 60px;
+}
+
+
 
 
 
