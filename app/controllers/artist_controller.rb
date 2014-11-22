@@ -2,12 +2,13 @@ class ArtistController < ApplicationController
 
 	def index
 
-		# ////////// ARTIST'S SPOTIFY ID //////////
+		# ////////// ARTIST'S SPOTIFY ID & MAIN PHOTO & NAME //////////
 		query = params[:query]
 		query = query.gsub(' ', '%20')
 		artist_api_response = HTTParty.get("https://api.spotify.com/v1/search?q=#{query}&type=artist")
 		@artist_image = artist_api_response["artists"]["items"][0]["images"][0]["url"]
 		artist_id = artist_api_response["artists"]["items"][0]["id"]
+		@artist_name = artist_api_response["artists"]["items"][0]["name"]
 
 		# ////////// ALBUM IMAGES AND PLAY BUTTON //////////
 		album_api_response = HTTParty.get("https://api.spotify.com/v1/artists/#{artist_id}/albums")
@@ -51,64 +52,19 @@ class ArtistController < ApplicationController
 		@last_fm_artist_bio = last_fm_artist["lfm"]["artist"]["bio"]["summary"]
 
 
-	end
-end
-
-
-
-
-
-
-
-# album_image_0 = albums_sorted_unique[0][:album_image]
-# album_id_0 = albums_sorted_unique[0][:album_id]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> 21ed119c16767d5dca45b77e600852e0b9d01655
 
 		# ////////// YOUTUBE //////////
 		client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
 		artistnamejoined = query.gsub('%20','')
+		youtube_api_response = client.videos_by(:query => "#{query}", :user => "#{artistnamejoined}"+"vevo", :page => 1, :per_page => 3)
 
-		youtube_api_response = client.videos_by(:query => "#{query}", :user => "#{artistnamejoined}"+"vevo", :page => 1, :per_page => 10)
-		# @youtube_player_url = youtube_api_response.videos[0].unique_id
 
-		@array_of_youtube_videos = []
+		array_of_youtube_videos = []
 		youtube_api_response.videos.each do |video|
-			@array_of_youtube_videos << video.unique_id
+			array_of_youtube_videos << video.unique_id
+		@video_0 = array_of_youtube_videos[0]
+		@video_1 = array_of_youtube_videos[1]
+		@video_2 = array_of_youtube_videos[2]
 		end
-
-		# ////////// MUZU //////////
-		muzu_artist = HTTParty.get("http://api.muzu.tv/api/artist/details/?muzuid=NPhSxOzqs0&aname=#{query}")
-		@muzu_video = muzu_artist["rss"]["channel"]["item"][0]["videoPlayerEmbedTag"]
-		@array_of_muzu_videos = []
-		muzu_artist["rss"]["channel"]["item"].each do |item|
-			@array_of_muzu_videos << item["videoPlayerEmbedTag"]
-		end
-
 	end
-
 end
-
-

@@ -9,14 +9,28 @@
 }
 
 .cover.playing {
-    border: 5px solid #e45343;
-}
-
-.navbar-default {
-	margin-bottom: 3%;
+    border: 2px solid #e45343;
 }
 
 img {
 	border-radius: 3px;
 }
+
+.artist-image {
+	max-height: 300px !important;
+	float: right !important;
+}
+
+.panel {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.margin-rows {
+	height: 0px;
+}
+
+
+
+
 

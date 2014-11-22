@@ -1,5 +1,6 @@
-<div class="container-fluid">
-	<div class="row">
+
+<div class="container">
+	<div class="row panel album-images">
 		<div class="col-xs-1">
 			<img src="<%= @album_image_0 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_0 %>">
 		</div>
@@ -37,33 +38,70 @@
 			<img src="<%= @album_image_11 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_11 %>">
 		</div>
 	</div>
+</div>
+<div class="container">
 	<div class="row">
+		<div class="col xs-12 margin-rows"><p>&nbsp;</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row panel">
 		<div class="col-xs-7">
+			<div>
+				<h1><%= @artist_name %></h1>
+			</div>
 			<div>
 				<%= @last_fm_artist_bio.html_safe %>
 			</div>
 		</div>
 		<div class="col-xs-1"></div>
 		<div class="col-xs-4">
-			<img src="<%= @artist_image %>" class="img-responsive" alt="responsive image">
+			<img src="<%= @artist_image %>" class="img-responsive artist-image" alt="responsive image">
+		</div>
+
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col xs-12 margin-rows"><p>&nbsp;</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row panel">
+		<div class="col-xs-4">
+			<div class="embed-responsive embed-responsive-4by3">
+				<iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="//www.youtube.com/embed/<%= @video_0 %>"></iframe>
+			</div>
+		</div>
+		<div class="col-xs-4">
+			<div class="embed-responsive embed-responsive-4by3">
+				<iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="//www.youtube.com/embed/<%= @video_1 %>"></iframe>
+			</div>
+		</div>
+		<div class="col-xs-4">
+			<div class="embed-responsive embed-responsive-4by3">
+				<iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="//www.youtube.com/embed/<%= @video_2 %>"></iframe>
+			</div>
 		</div>
 	</div>
 </div>
 
 
-<% @array_of_youtube_videos.each do |video| %>
-	<div id="youtube_video" %>
-		<iframe id="ytplayer" type="text/html" width="640" height="390"
-		  src="//www.youtube.com/embed/<%= video %>"
-		  frameborder="0"/>
-		</iframe>
-	</div>	
-<% end %>
 
 
-<% @array_of_muzu_videos.each do |video| %>
-	<div id="muzu_video">
-		<%= video.html_safe %>
-	</div>
-<% end %>
+
+
+
+
+
+
+
+
+
+
 
