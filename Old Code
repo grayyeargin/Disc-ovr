@@ -196,3 +196,37 @@ muzu_artist["rss"]["channel"]["item"][0]["videoPlayerEmbedTag"]
 		<p><%= event[:time] %></p>
 	</div>
 <% end %>
+
+
+
+
+
+client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
+		youtube_api_response = client.videos_by(:query => "the%20stone%20roses", :user => "thestonerosesvevo", :page => 1, :per_page => 1)
+
+
+		youtube_api_response = client.videos_by(:query => "shakira", :user => "shakira", :page => 1, :per_page => 1)
+
+
+
+
+
+# youtube_api_response = client.videos_by(:query => "the%20stone%20roses", :user => "thestonerosesvevo", :page => 1, :per_page => 1)
+# youtube_api_response = client.videos_by(:query => "shakira", :page => 1, :per_page => 1)
+# youtube_api_response.videos[0]
+
+# client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
+# youtube_api_response = client.videos_by(:query => "shakira", :page => 1, :per_page => 3)
+
+# if youtube_api_response.videos[0].author.name.include?("VEVO")
+# 	@video_0 = youtube_api_response.videos[0].unique_id
+# end
+
+# if youtube_api_response.videos[1].author.name.include?("VEVO")
+# 	@video_1 = youtube_api_response.videos[1].unique_id
+# end
+
+# if youtube_api_response.videos[2].author.name.include?("VEVO")
+# 	@video_2 = youtube_api_response.videos[2].unique_id
+# end
+
