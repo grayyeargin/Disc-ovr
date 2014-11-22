@@ -1,5 +1,7 @@
 class ArtistController < ApplicationController
 
+	include ArtistHelper
+
 	def index
 
 		# ////////// ARTIST'S SPOTIFY ID & MAIN PHOTO & NAME //////////
@@ -71,40 +73,13 @@ class ArtistController < ApplicationController
 				@video_2 = "No Video"
 			end
 		end
+
+
+		# ////////// TWITTER DATA //////////
+		twitter_client = Twittersearch.new(query)
+ 		@twitter_results = twitter_client.twitter_query
+
+
 	end
 end
-
-
-
-# //////////////////////////////////////////////////////////////////////////
-# array_of_you_tube_videos = []
-# client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
-# youtube_api_response = client.videos_by(:query => "the%20stone%20roses", :user => "thestoneroses" + "vevo", :page => 1, :per_page => 3)
-# has_videos = youtube_api_response do |reply|
-# 	if reply == "OpenURI::HTTPError: 404"
-# 		array_of_you_
-
-
-# array_of_youtube_videos = []
-# if array_of_youtube_videos.length < 3
-# 	while array_of_youtube_videos < 3
-# 		array_of_youtube_videos << "No Videos!"
-# 	else
-# 		youtube_api_response.videos.each do |video|
-# 			array_of_youtube_videos << video.unique_id
-# 			@video_0 = array_of_youtube_videos[0]
-# 			@video_1 = array_of_youtube_videos[1]
-# 			@video_2 = array_of_youtube_videos[2]
-# 		end
-# 	end
-# end
-		# array_of_youtube_videos = []
-		# youtube_api_response.videos.each do |video|
-		# 	array_of_youtube_videos << video.unique_id
-		# 	@video_0 = array_of_youtube_videos[0]
-		# 	@video_1 = array_of_youtube_videos[1]
-		# 	@video_2 = array_of_youtube_videos[2]
-		# end
-
-
 

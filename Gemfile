@@ -46,4 +46,6 @@ gem 'pry'
 
 gem 'youtube_it'
 
+gem 'twitter'
+
 
