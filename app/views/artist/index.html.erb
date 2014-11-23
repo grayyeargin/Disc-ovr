@@ -75,17 +75,26 @@
 	<div class="row panel">
 		<div class="col-xs-4">
 			<div class="embed-responsive embed-responsive-4by3">
+				<%if @video_0 != nil%>
 				<iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="//www.youtube.com/embed/<%= @video_0 %>"></iframe>
+				<% end %>
+				<%if @video_0 = nil && @video_1 = nil && @video_2 = nil %>
+				<p>No Vevo videos are available for this artist</p>
+				<% end %>
 			</div>
 		</div>
 		<div class="col-xs-4">
 			<div class="embed-responsive embed-responsive-4by3">
+				<%if @video_1 != nil%>
 				<iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="//www.youtube.com/embed/<%= @video_1 %>"></iframe>
+				<% end %>
 			</div>
 		</div>
 		<div class="col-xs-4">
 			<div class="embed-responsive embed-responsive-4by3">
+				<% if @video_2 != nil%>
 				<iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="//www.youtube.com/embed/<%= @video_2 %>"></iframe>
+				<% end %>
 			</div>
 		</div>
 	</div>

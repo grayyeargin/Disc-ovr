@@ -57,29 +57,37 @@ class ArtistController < ApplicationController
 
 		# ////////// YOUTUBE //////////
 		client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
-		artistnamejoined = query.gsub('%20','')
-		youtube_api_response = client.videos_by(:query => "#{query}", :user => "#{artistnamejoined}"+"vevo", :page => 1, :per_page => 3)
+		youtube_api_response = client.videos_by(:query => "#{query}", :page => 1, :per_page => 50)
 
-		array_of_youtube_videos = []
+		vevo_videos = []
+		non_vevo_videos = []
 		youtube_api_response.videos.each do |video|
-			array_of_youtube_videos << video.unique_id
-			@video_0 = array_of_youtube_videos[0]
-			@video_1 = array_of_youtube_videos[1]
-			@video_2 = array_of_youtube_videos[2]
-
-			if array_of_youtube_videos.length < 3
-				@video_0 = "No Video"
-				@video_1 = "No Video"
-				@video_2 = "No Video"
+			if video.author.name.include?("VEVO")
+				vevo_videos << video.unique_id
+			else
+				non_vevo_videos << video.unique_id
 			end
 		end
 
+		if vevo_videos[0] != nil
+			@video_0 = vevo_videos[0]
+		else
+			@video_0 = non_vevo_videos[0]
+		end
+		if vevo_videos[1] != nil
+			@video_1 = vevo_videos[1]
+		else
+			@video_1 = non_vevo_videos[1]
+		end
+		if vevo_videos[2] != nil
+			@video_2 = vevo_videos[2]
+		else
+			@video_2 = non_vevo_videos[2]
+		end
 
 		# ////////// TWITTER DATA //////////
 		twitter_client = Twittersearch.new(query)
  		@twitter_results = twitter_client.twitter_query
 
-
 	end
 end
-
