@@ -1,0 +1,32 @@
+
+<div class="container user-form panel">
+	<div class="row">
+		<div class="col-xs-10">
+
+
+			<form action="/sessions" method="post">
+				
+				<%= token_tag %>
+				<!-- Username -->
+				<div class="form-group">
+					<%= label_tag :username, "User Name", :class => "control-label" %>
+					<div>
+						<%= text_field_tag :username, nil, :class => "form-control" %>
+					</div>
+				</div>
+
+				<!-- Password -->
+				<div class="form-group">
+					<%= label_tag :password, "Password", :class => "control-label" %>
+					<div>
+						<%= text_field_tag :password, nil, :class => "form-control" %>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-success">Log In</button>
+
+			</form>
+
+		</div>
+	</div>
+</div>

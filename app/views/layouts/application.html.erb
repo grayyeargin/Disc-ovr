@@ -16,6 +16,8 @@
 						<input type="text" class="form-control col-lg-8" name="query" placeholder="Search">
 					</form>
 				</div>
+			<!-- User Login Nav -->
+				<%= render partial: current_user ? "/shared/user_nav" : "/shared/non_user_nav" %>
 			</div>
 		</nav>
 	</div>
