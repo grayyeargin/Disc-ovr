@@ -1,3 +1,62 @@
+blockquote.twitter-tweet p {
+/*  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;*/
+  max-width: 350px;
+  }
+
+/*blockquote.twitter-tweet a {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+  outline: 0 none;
+  }*/
+
+/*blockquote.twitter-tweet a:hover,
+blockquote.twitter-tweet a:focus {
+  text-decoration: underline;
+  }*/
+
+/*.tweets-container {
+    width: 450px;
+    }*/
+
+
+/*blockquote.twitter-tweet .user-screen-name {
+font-size: 13px;
+color: #8899a6;
+font-weight: lighter;
+margin-left: 3px;
+}*/
+
+
+
+/*blockquote.twitter-tweet h4 {
+    display: inline-block;
+    }*/
+
+blockquote.twitter-tweet img {
+  margin-top: 10px;
+}
+
+blockquote.twitter-tweet .tweet-img-left {
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+}
+
+/*blockquote.twitter-tweet .tweet-user {
+font-weight: bold;
+color: #292f33;
+}*/
+
+blockquote.twitter-tweet .tweet-text-right {
+/*  float: right;*/
+  margin-top: 10px;
+  /*width: 350px;*/
+
+}
+
 
 
 		# youtube_api_response = client.videos_by(:query => "the%20stone%20roses", :user => "thestonerosesvevo", :page => 1, :per_page => )
