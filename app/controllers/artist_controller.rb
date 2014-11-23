@@ -90,7 +90,7 @@ class ArtistController < ApplicationController
  		@twitter_results = twitter_client.twitter_query
 
  		# ////////// REDDIT DATA //////////
-		reddit_response = HTTParty.get("http://www.reddit.com/r/subreddit/search.json?q=beyonce&limit=10&sort=hot")
+		reddit_response = HTTParty.get("http://www.reddit.com/r/subreddit/search.json?q=#{query}&limit=10&sort=hot")
 		@reddit_results = []
 		reddit_response["data"]["children"].each do |link|
 			@reddit_results << {title: link["data"]["title"],permalink: "www.reddit.com" + link["data"]["permalink"],thumbnailurl: link["data"]["thumbnail"],author: link["data"]["author"]}
