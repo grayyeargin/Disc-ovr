@@ -18,8 +18,11 @@
 						</form>
 					</div>
 				</div>
-			</nav>
-		</div>
+				<!-- User Login Nav -->
+				<%= render partial: current_user ? "/shared/user_nav" : "/shared/non_user_nav" %>
+			</div>
+		</nav>
+
 	</div>
 	<%= yield %>
 </body>

@@ -1,0 +1,9 @@
+<div class="container user-form panel">
+	<div class="row">
+		<div class="col-xs-10">
+			<legend>Edit Your Profile Information</legend>
+			<%= render partial: "form" %>
+			<%= link_to "Delete Account", @user , method: :delete, data: {confirm: "are you sure you want to delete account?"} %>
+		</div>
+	</div>
+</div>

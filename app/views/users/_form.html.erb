@@ -1,0 +1,48 @@
+
+			<%= form_for @user do |f| %>
+			
+
+				<!-- First Name -->
+				<div class="form-group">
+					<%= f.label :first_name, "Fist Name", :class => " control-label" %>
+					<div>
+						<%= f.text_field :first_name, :class => "form-control" %>
+					</div>
+				</div>
+
+				<!-- Last Name -->
+				<div class="form-group">
+					<%= f.label :last_name, "Last Name" , :class => " control-label" %>
+					<div>
+						<%= f.text_field :last_name, :class => "form-control" %>
+					</div>
+				</div>
+
+				<!-- User Name -->
+				<div class="form-group">
+					<%= f.label :username, :class => "control-label" %>
+					<div>
+						<%= f.text_field :username, :class => "form-control" %>
+					</div>
+				</div>
+
+				<!-- Password -->
+				<div class="form-group">
+					<%= f.label :password, :class => " control-label" %>
+					<div>
+						<%= f.text_field :password, :class => "form-control" %>
+					</div>
+				</div>
+
+				<!-- Image -->
+				<div class="form-group">
+					<%= f.label :avatar, "Avatar Image" , :class => " control-label" %>
+					<div>
+						<%= f.file_field :avatar %>
+					</div>
+				</div>
+
+
+
+				<button type="submit" class="btn btn-success">Submit</button>
+			<% end %>
