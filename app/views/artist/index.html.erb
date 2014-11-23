@@ -129,8 +129,13 @@
 </div>
 
 
-
-
+<% @reddit_results.each do |link| %>
+	<div>
+		<img src="<%= link[:thumbnailurl] %>"> 
+		<p>By "<%= link[:author] %>"</p>
+		<a href="permalink"><%= link[:title] %></a>
+	</div>
+<% end %>
 
 
 
