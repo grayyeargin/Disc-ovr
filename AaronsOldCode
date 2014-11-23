@@ -1,0 +1,23 @@
+<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+<div class="container all-tiles">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<% total_tiles = 0 %>
+				<% image_number = 0 %>
+				<% while total_tiles < 10 %>
+				<div class="col-xs-1">
+					<div class="cyle-slideshow">
+					<% while image_number < 3 %>
+						<% @nature.each do |image| %>
+						<img src="<%= image %>">
+						<% image_number += 1 %>
+					<% end %>
+					</div>
+					<% total_tiles += 1 %>
+				</div>
+                <% end %>
+			</div>
+		</div>
+	</div>
+</div>
