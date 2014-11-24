@@ -56,32 +56,32 @@ class ArtistController < ApplicationController
 
 
 		# ////////// YOUTUBE //////////
-		client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
-		youtube_api_response_all = client.videos_by(:query => "#{query}", :page => 1, :per_page => 50)
-		vevo_videos = []
-		non_vevo_videos = []
-		youtube_api_response_all.videos.each do |video|
-			if video.author.name.include?("VEVO")
-				vevo_videos << video.unique_id
-			else
-				non_vevo_videos << video.unique_id
-		end
+		# client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
+		# youtube_api_response_all = client.videos_by(:query => "#{query}", :page => 1, :per_page => 50)
+		# vevo_videos = []
+		# non_vevo_videos = []
+		# youtube_api_response_all.videos.each do |video|
+		# 	if video.author.name.include?("VEVO")
+		# 		vevo_videos << video.unique_id
+		# 	else
+		# 		non_vevo_videos << video.unique_id
+		# end
 
-		if vevo_videos[0] != nil
-			@video_0 = vevo_videos[0]
-		else
-			@video_0 = non_vevo_videos[0]
-		end
-		if vevo_videos[1] != nil
-			@video_1 = vevo_videos[1]
-		else
-			@video_1 = non_vevo_videos[1]
-		end
-		if vevo_videos[2] != nil
-			@video_2 = vevo_videos[2]
-		else
-			@video_2 = non_vevo_videos[2]
-		end
+		# if vevo_videos[0] != nil
+		# 	@video_0 = vevo_videos[0]
+		# else
+		# 	@video_0 = non_vevo_videos[0]
+		# end
+		# if vevo_videos[1] != nil
+		# 	@video_1 = vevo_videos[1]
+		# else
+		# 	@video_1 = non_vevo_videos[1]
+		# end
+		# if vevo_videos[2] != nil
+		# 	@video_2 = vevo_videos[2]
+		# else
+		# 	@video_2 = non_vevo_videos[2]
+		# end
 
 		# # ////////// TWITTER DATA //////////
 		# twitter_client = Twittersearch.new(query)

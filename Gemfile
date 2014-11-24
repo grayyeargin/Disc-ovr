@@ -44,7 +44,7 @@ gem 'spotify-client'
 
 gem 'pry'
 
-gem 'youtube_it'
+# gem 'youtube_it'
 
 gem 'twitter'
 
