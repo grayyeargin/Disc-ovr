@@ -1,45 +1,31 @@
-<!-- 		<div class="col-xs-1 cycle-slideshow" data-cycle-timeout=<%= (rand(2000)+1500) %>>
-			<img src="http://images.artistdirect.com/Images/Sources/AMGCOVERS/music/cover200/drd700/d711/d71165s8l0j.jpg">
-			<img src="http://ecx.images-amazon.com/images/I/51rTh8opG3L.jpg">
-			<img src="http://images.uulyrics.com/cover/m/marc-anthony/album-contra-la-corriente.jpg">
-		</div>
-		<div class="col-xs-1 cycle-slideshow" data-cycle-timeout=<%= (rand(2000)+1500) %>>
-
-			<img src="http://media-cache-ec0.pinimg.com/736x/fb/ff/fd/fbfffd1917e7b24d89297cd6de56f23e.jpg">
-			<img src="http://ecx.images-amazon.com/images/I/416BBXARFPL.jpg">
-		</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="http://malsup.github.com/jquery.cycle2.js"></script>
-<div class="container all-tiles">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DiscOvery</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
-				<% total_tiles = 0 %>
-				<% image_number = 0 %>
-				<% while total_tiles < 10 %>
-				<div class="col-xs-1">
-					<div class="cyle-slideshow">
-					<% while image_number < 3 %>
-						<% @nature.each do |image| %>
-						<img src="<%= image %>">
-						<% image_number += 1 %>
-					<% end %>
+			<nav class="col-xs-12 navbar-inverse margin-inverse" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<a href="/" action="/welcome" method="get" class="navbar-brand">MusicMap</a>
+						<form role="form" action="/artist" method="get" class="navbar-form navbar-left" role="form" action="/artist" method="get">
+							<input type="text" class="form-control col-lg-8" name="query" placeholder="Search">
+						</form>
 					</div>
-					<% total_tiles += 1 %>
 				</div>
-                <% end %>
+				<!-- User Login Nav -->
+				<div class="float-right">
+					<%= render partial: current_user ? "/shared/user_nav" : "/shared/non_user_nav" %>
+				</div>
 			</div>
-		</div>
+		</nav>
+
 	</div>
-</div>
+	<%= yield %>
+</body>
+</html>

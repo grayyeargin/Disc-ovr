@@ -49,13 +49,19 @@
 <div class="container">
 	<div class="row panel">
 		<div class="col-xs-7">
-			<div>
-				<h1 id="artist-name"><%= @artist_name %></h1>
-				<% if current_user %>
-				<button type="button" id="<%= current_user.id %>" class="btn btn-default">Like Artist</button>
-				<% end %>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="artist-name">
+						<h1 id="artist-name"><%= @artist_name %></h1>
+					</div>
+					<div class="artist-like-button">
+						<% if current_user %>
+						<button type="button" id="<%= current_user.id %>" class="btn btn-default">Like Artist</button>
+						<% end %>
+					</div>
+				</div>
 			</div>
-			<div>
+			<div class="artist-bio">
 				<%= @last_fm_artist_bio.html_safe %>
 			</div>
 		</div>
@@ -111,28 +117,28 @@
 
 
 <% @reddit_results.each do |link| %>
-	<div class="reddit clearfix">
-		<div class="reddit-ups">
-			<div class="arrow-up"></div>
-			<div class="arrow-up-box"></div>
-			<p><%= link[:ups] %></p>
-			<div class="arrow-down-box"></div>	
-			<div class="arrow-down"></div>
-		</div>
-		<div class="reddit-thumbnail">
-			<% if link[:thumbnailurl] == "" || link[:thumbnailurl] == "nsfw" || link[:thumbnailurl] == "self" %>
-				<img src="/assets/reddit_img.png" class="reddit-thumbnail-img">
-			<% else %>	
-				<img src="<%= link[:thumbnailurl] %>" class="reddit-thumbnail-img">
-			<% end %>	
-		</div>
-		<div class="reddit-text clearfix">	
-			<p class="reddit-title">
-				<a href="<%= link[:permalink] %>"><%= link[:title] %></a>
-			</p>
-			<p class="reddit-author">submitted at <%= link[:created_utc] %> by <%= link[:author] %></p>
-			<p class="reddit-comments"><%= link[:num_comments] %> comments</p>
-		</div>	
+<div class="reddit clearfix">
+	<div class="reddit-ups">
+		<div class="arrow-up"></div>
+		<div class="arrow-up-box"></div>
+		<p><%= link[:ups] %></p>
+		<div class="arrow-down-box"></div>
+		<div class="arrow-down"></div>
 	</div>
+	<div class="reddit-thumbnail">
+		<% if link[:thumbnailurl] == "" || link[:thumbnailurl] == "nsfw" || link[:thumbnailurl] == "self" %>
+		<img src="/assets/reddit_img.png" class="reddit-thumbnail-img">
+		<% else %>
+		<img src="<%= link[:thumbnailurl] %>" class="reddit-thumbnail-img">
+		<% end %>
+	</div>
+	<div class="reddit-text clearfix">
+		<p class="reddit-title">
+			<a href="<%= link[:permalink] %>"><%= link[:title] %></a>
+		</p>
+		<p class="reddit-author">submitted at <%= link[:created_utc] %> by <%= link[:author] %></p>
+		<p class="reddit-comments"><%= link[:num_comments] %> comments</p>
+	</div>
+</div>
 <% end %>
 
