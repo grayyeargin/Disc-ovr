@@ -142,7 +142,7 @@
 			<div class="arrow-down"></div>
 		</div>
 		<div class="reddit-thumbnail">
-			<% if link[:thumbnailurl] == "" %>
+			<% if link[:thumbnailurl] == "" || link[:thumbnailurl] == "nsfw" || link[:thumbnailurl] == "self" %>
 				<img src="/assets/reddit_img.png" class="reddit-thumbnail-img">
 			<% else %>	
 				<img src="<%= link[:thumbnailurl] %>" class="reddit-thumbnail-img">
