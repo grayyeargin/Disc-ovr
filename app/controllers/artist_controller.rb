@@ -56,20 +56,15 @@ class ArtistController < ApplicationController
 
 
 		# ////////// YOUTUBE //////////
-		artist_name_joined = query.gsub('%20', '')
 		client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
-		youtube_api_response_vevo = client.videos_by(:query => "#{query}",:user => "#{artist_name_joined}"+"VEVO", :page => 1, :per_page => 3)
-
+		youtube_api_response_all = client.videos_by(:query => "#{query}", :page => 1, :per_page => 50)
 		vevo_videos = []
-		youtube_api_response_vevo.videos.each do |video|
-			if video.author.name.include?("VEVO")
-				vevo_videos << video.unique_id
-		end
-
-		youtube_api_response_all = client.videos_by(:query => "#{query}", :page => 1, :per_page => 10)
 		non_vevo_videos = []
 		youtube_api_response_all.videos.each do |video|
-			non_vevo_videos << video.unique_id unless video.author.name.include?("VEVO")
+			if video.author.name.include?("VEVO")
+				vevo_videos << video.unique_id
+			else
+				non_vevo_videos << video.unique_id
 		end
 
 		if vevo_videos[0] != nil

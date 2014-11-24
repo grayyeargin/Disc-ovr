@@ -10,10 +10,12 @@
 	<div class="row">
 		<div class="jumbotron">
 			<div class="input-group col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 welcome-form">
-				<form role="form" action="/artist" method="get">
-					<input type="text" class="form-control main-search-box" name="query" placehoder="Search our mousic database!">
+				<form role="form" action="/artist" method="get" id="search-form">
+					<input type="text" class="form-control main-search-box" name="query" placehoder="Search our mousic database!" id="query">
 					<input type="submit" class="form-control main-submit-button" value="Search">
 				</form>
+				<div id="search-error-msg">
+				</div>	
 			</div>
 		</div>
 	</div>

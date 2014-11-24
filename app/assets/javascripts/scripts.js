@@ -12,6 +12,22 @@ var fetchTracks = function (albumId, callback) {
     });
 };
 
+var searchArtist = function (query, that) {
+    $.ajax({
+        url: 'https://api.spotify.com/v1/search',
+        data: {
+            q: query,
+            type: 'artist'
+        },
+        success: function (response) {
+            if artist_api_response["artists"]["items"] === [] {
+                $("#search-error-msg").html("this artist does not exist")
+            }
+            else that.unbind('submit').submit()
+        }
+    });
+};
+
 
 
 $(function(){
@@ -41,4 +57,14 @@ $(function(){
             }
         }
     });
+    $("#search-form").submit(function (e) {
+        e.preventDefault();
+        var that = this
+        searchArtist($("#query").value, that);
+    }, false)   ;
 });
+
+
+
+
+
