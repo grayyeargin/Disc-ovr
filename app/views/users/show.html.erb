@@ -5,3 +5,14 @@
 
 <%= image_tag @user.avatar.url(:medium), class: "img-circle" %>
 </div>
+
+<div class="container panel">
+	<h2>Liked Artists</h2>
+	<% @likes.each do |like| %>
+	<div class="like-container">
+		<a href="<%= like.artist_url %> "><img src="<%= like.image_url %> " alt="<%= like.artist_name %> " class="img-rounded"></a>
+		<h4><%= like.artist_name %></h4>
+	</div>
+	<% end %>
+
+</div>

@@ -19,7 +19,9 @@
 					</div>
 				</div>
 				<!-- User Login Nav -->
-				<%= render partial: current_user ? "/shared/user_nav" : "/shared/non_user_nav" %>
+				<div class="float-right">
+					<%= render partial: current_user ? "/shared/user_nav" : "/shared/non_user_nav" %>
+				</div>
 			</div>
 		</nav>
 

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   delete "/sessions" => "sessions#logout", as: "logout" # logout_path is now defined
 
+  post "/likes" => "likes#create"
+
   resources :artist
 
   resources :users
