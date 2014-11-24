@@ -1,4 +1,36 @@
 module ArtistHelper
+
+
+  class Spotifysearch
+    attr_reader :artist_id
+    def initialize(artist_id)
+      @artist_id = artist_id
+    end
+
+    def grab_unique_albums
+      album_api_response = HTTParty.get("https://api.spotify.com/v1/artists/#{artist_id}/albums")
+
+      albums_sorted = album_api_response["items"].map do |album|
+        {
+          album_image: album["images"][0]["url"],
+          album_name: album["name"],
+          album_id: album["id"] }
+      end
+
+      unique_albums = albums_sorted.uniq do |album|
+        album[:album_name]
+      end
+
+      unique_albums[0..10]
+
+
+    end
+  end
+
+
+
+
+
   class Twittersearch
     attr_reader :query
     def initialize(query)
