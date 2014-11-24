@@ -83,9 +83,9 @@ class ArtistController < ApplicationController
 			@video_2 = non_vevo_videos[2]
 		end
 
-		# ////////// TWITTER DATA //////////
-		twitter_client = Twittersearch.new(query)
- 		@twitter_results = twitter_client.twitter_query
+		# # ////////// TWITTER DATA //////////
+		# twitter_client = Twittersearch.new(query)
+ 	# 	@twitter_results = twitter_client.twitter_query
 
  		# ////////// REDDIT DATA //////////
 		reddit_response = HTTParty.get("http://www.reddit.com/r/subreddit/search.json?q=#{query}&limit=20&sort=hot")

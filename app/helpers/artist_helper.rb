@@ -13,7 +13,7 @@ module ArtistHelper
     end
 
     def twitter_query
-      results = self.configure_client.get("https://api.twitter.com/1.1/search/tweets.json?q=#{@query}+music&count=10", lang: "en", result_type: "recent")
+      results = configure_client.search(@query+"+music", lang: "en", result_type: "recent")
 
       results[:statuses].map do |tweet|
         {
@@ -30,3 +30,6 @@ module ArtistHelper
 
   end
 end
+
+
+
