@@ -60,11 +60,84 @@ blockquote.twitter-tweet .tweet-text-right {
 }
 
 
+/*reddit display styling*/
+.reddit {
+  float:left;
+  clear:both;
+  margin-bottom: 20px;
+}
 
 
+.clearfix {
+  overflow: auto;
+}
 
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid gray;
+  margin: 0 auto;
+}
 
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid gray;
+  margin: 0 auto;
+}
 
+.arrow-up-box {
+  width: 8px;
+  height: 10px;
+  background: gray;
+  margin: 0 auto;
+}
+
+.arrow-down-box {
+  width: 8px;
+  height: 10px;
+  background: gray;
+  margin: 0 auto;
+  margin-top: -10px; 
+}
+
+.reddit-ups {
+  float:left;
+  margin-top: 0px;
+  padding: 0px;
+}
+
+.reddit-thumbnail {
+  float:left;  
+  margin-left: 10px;
+}
+
+.reddit-text {
+  float:left;  
+  margin-left: 10px;
+}
+
+.reddit-title {
+  font-size: 20px;
+}
+
+.reddit-thumbnail-img {
+  width: 80px;
+}
+
+.reddit-author {
+  margin-top: -10px;
+  font-size: 12px;
+}
+
+.reddit-comments {
+  margin-top: -10px;
+  font-size:12px;
+}
 
 
 

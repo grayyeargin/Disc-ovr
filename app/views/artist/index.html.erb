@@ -130,14 +130,26 @@
 
 
 <% @reddit_results.each do |link| %>
-	<div>
-		<img src="<%= link[:thumbnailurl] %>"> 
-		<p>By "<%= link[:author] %>"</p>
-		<a href="permalink"><%= link[:title] %></a>
+	<div class="reddit clearfix">
+		<div class="reddit-ups">
+			<div class="arrow-up"></div>
+			<div class="arrow-up-box"></div>
+			<p><%= link[:ups] %></p>
+			<div class="arrow-down-box"></div>	
+			<div class="arrow-down"></div>
+		</div>
+		<div class="reddit-thumbnail">
+			<img src="<%= link[:thumbnailurl] %>" class="reddit-thumbnail-img">
+		</div>
+		<div class="reddit-text">	
+			<p class="reddit-title">
+				<a href="<%= link[:permalink] %>"><%= link[:title] %></a>
+			</p>
+			<p class="reddit-author">submitted at <%= link[:created_utc] %> by <%= link[:author] %></p>
+			<p class="reddit-comments"><%= link[:num_comments] %> comments</p>
+		</div>	
 	</div>
 <% end %>
-
-
 
 
 
