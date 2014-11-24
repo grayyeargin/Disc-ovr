@@ -20,7 +20,7 @@ var fetchTracks = function (albumId, callback) {
 //             type: 'artist'
 //         },
 //         success: function (response) {
-//             if artist_api_response["artists"]["items"] === [] {
+//             if response["artists"]["items"] === [] {
 //                 $("#search-error-msg").html("this artist does not exist")
 //             }
 //             else that.unbind('submit').submit()
@@ -55,13 +55,13 @@ $(function(){
             }
         }
     });
-    // $("#search-form").submit(function (e) {
-    //     e.preventDefault();
-    //     var that = this
-    //     searchArtist($("#query").value, that);
-    // }, false)   ;
+    $("#search-form").submit(function (e) {
+        e.preventDefault();
+        var searchform = $("#search-form");
+        debugger
+        searchArtist($("#query").value, searchform);
+    });
 });
-
 
 
 

@@ -66,22 +66,23 @@ class ArtistController < ApplicationController
 			else
 				non_vevo_videos << video.unique_id
 			end
+		end
 
-			if vevo_videos[0] != nil
-				@video_0 = vevo_videos[0]
-			else
-				@video_0 = non_vevo_videos[0]
-			end
-			if vevo_videos[1] != nil
-				@video_1 = vevo_videos[1]
-			else
-				@video_1 = non_vevo_videos[1]
-			end
-			if vevo_videos[2] != nil
-				@video_2 = vevo_videos[2]
-			else
-				@video_2 = non_vevo_videos[2]
-			end
+		if vevo_videos[0] != nil
+			@video_0 = vevo_videos[0]
+		else
+			@video_0 = non_vevo_videos[0]
+		end
+		if vevo_videos[1] != nil
+			@video_1 = vevo_videos[1]
+		else
+			@video_1 = non_vevo_videos[1]
+		end
+		if vevo_videos[2] != nil
+			@video_2 = vevo_videos[2]
+		else
+			@video_2 = non_vevo_videos[2]
+		end
 
 		# # ////////// TWITTER DATA //////////
 		# twitter_client = Twittersearch.new(query)
@@ -95,5 +96,6 @@ class ArtistController < ApplicationController
  				@reddit_results << {title: link["data"]["title"], permalink: "http://www.reddit.com" + link["data"]["permalink"], thumbnailurl: link["data"]["thumbnail"], author: link["data"]["author"], created_utc: Time.at(link["data"]["created_utc"]), ups: link["data"]["ups"], num_comments: link["data"]["num_comments"]}
  			end
  		end
+
  	end
 end
