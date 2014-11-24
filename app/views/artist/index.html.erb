@@ -1,42 +1,12 @@
 
 <div class="container">
 	<div class="row panel album-images">
+	<h4 class="h4-margin">Click to Preview</h4>
+	<% @albums_sorted_unique.each do |album| %>
 		<div class="col-xs-1">
-			<img src="<%= @album_image_0 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_0 %>">
+			<img src="<%= album[:album_image] %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= album[:album_id] %>">
 		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_1 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_1 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_2 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_2 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_3 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_3 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_4 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_4 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_5 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_5 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_6 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_6 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_7 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_7 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_8 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_8 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_9 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_9 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_10 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_10 %>">
-		</div>
-		<div class="col-xs-1">
-			<img src="<%= @album_image_11 %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= @album_id_11 %>">
-		</div>
+	<% end %>
 	</div>
 </div>
 <div class="container">
