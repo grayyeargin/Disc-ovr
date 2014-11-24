@@ -65,6 +65,7 @@ blockquote.twitter-tweet .tweet-text-right {
   float:left;
   clear:both;
   margin-bottom: 20px;
+  vertical-align: top;
 }
 
 
@@ -112,13 +113,14 @@ blockquote.twitter-tweet .tweet-text-right {
 }
 
 .reddit-thumbnail {
-  float:left;  
+  float:left;
   margin-left: 10px;
 }
 
-.reddit-text {
-  float:left;  
+.reddit-text { 
+  float:left;
   margin-left: 10px;
+  max-width: 550px;
 }
 
 .reddit-title {
@@ -138,7 +140,4 @@ blockquote.twitter-tweet .tweet-text-right {
   margin-top: -10px;
   font-size:12px;
 }
-
-
-
 

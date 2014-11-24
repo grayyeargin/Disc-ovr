@@ -95,6 +95,6 @@ class ArtistController < ApplicationController
 		reddit_response["data"]["children"].each do |link|
 			@reddit_results << {title: link["data"]["title"], permalink: "http://www.reddit.com" + link["data"]["permalink"], thumbnailurl: link["data"]["thumbnail"], author: link["data"]["author"], created_utc: Time.at(link["data"]["created_utc"]), ups: link["data"]["ups"], num_comments: link["data"]["num_comments"]}
 		end
+
 	end
 end
-

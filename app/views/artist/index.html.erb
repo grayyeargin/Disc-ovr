@@ -139,9 +139,13 @@
 			<div class="arrow-down"></div>
 		</div>
 		<div class="reddit-thumbnail">
-			<img src="<%= link[:thumbnailurl] %>" class="reddit-thumbnail-img">
+			<% if link[:thumbnailurl] == "" %>
+				<img src="/assets/reddit_img.png" class="reddit-thumbnail-img">
+			<% else %>	
+				<img src="<%= link[:thumbnailurl] %>" class="reddit-thumbnail-img">
+			<% end %>	
 		</div>
-		<div class="reddit-text">	
+		<div class="reddit-text clearfix">	
 			<p class="reddit-title">
 				<a href="<%= link[:permalink] %>"><%= link[:title] %></a>
 			</p>
@@ -150,14 +154,4 @@
 		</div>	
 	</div>
 <% end %>
-
-
-
-
-
-
-
-
-
-
 
