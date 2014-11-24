@@ -13,7 +13,7 @@ module ArtistHelper
     end
 
     def twitter_query
-      results = self.configure_client.get("https://api.twitter.com/1.1/search/tweets.json?q=#{@query}+music&count=10", lang: "en", result_type: "recent")
+      results = configure_client.search(@query+"+music", lang: "en", result_type: "recent")
 
       results[:statuses].map do |tweet|
         {
@@ -30,3 +30,34 @@ module ArtistHelper
 
   end
 end
+
+
+
+
+<div class="container">
+  <div class="row panel">
+    <div class="col-xs-8">
+    </div>
+    <div class="col-xs-4">
+      <div class="tweets-container">
+        <% @twitter_results.each do |tweet| %>
+        <blockquote class="twitter-tweet">
+          <div>
+            <div class="tweet-img-left">
+              <img src="<%= tweet[:user_image] %>" alt="<%= tweet[:user] %>" class="tweet-image">
+            </div>
+
+            <div class="tweet-text-right">
+              <strong class="tweet-user"><%= tweet[:user] %></strong>
+              <span class="user-screen-name">@<%= tweet[:screen_name] %></span>
+              <span>&#8226;</span>
+              <span class="user-screen-name"><%= time_ago_in_words(tweet[:created_at]) %> ago</span>
+            </br>
+            <p><%= tweet[:text] %></p>
+          </div>
+        </div>
+      </blockquote>
+      <% end %>
+    </div>
+  </div>
+</div>
