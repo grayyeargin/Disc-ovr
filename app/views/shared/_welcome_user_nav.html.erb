@@ -4,20 +4,21 @@
 <div class="row">
 	<div class="col-xs-7">
 		<div class="navbar-header">
-		<form action="/" method="get">
-			<input type="submit" class="navbar-brand" value="MusicMap">
-		</input>
+			<form action="/" method="get">
+				<input type="submit" class="navbar-brand" value="MusicMap">
+			</input>
+		</form>
 	</div>
-	<div class="col-xs-2 navbar-links view-profile">
-		<%= link_to "View Profile", current_user, method: :get %>
+		<div class="col-xs-2 navbar-links view-profile">
+			<%= link_to "View Profile", current_user, method: :get %>
+		</div>
+		<div class="col-xs-1 logout">
+			<%= link_to "Logout", logout_path, method: :delete %>
+		</div>
+		<div class="col-xs-2 current-users-name">
+			<p>welcome &nbsp; <%= current_user.first_name.titleize %></p>
+		</div>
 	</div>
-	<div class="col-xs-1 logout">
-		<%= link_to "Logout", logout_path, method: :delete %>
-	</div>
-	<div class="col-xs-2 current-users-name">
-		<p>welcome &nbsp; <%= current_user.first_name.titleize %></p>
-	</div>
-</div>
 
 
 

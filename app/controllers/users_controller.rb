@@ -15,7 +15,13 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
-    redirect_to user
+    if user.valid?
+      redirect_to "/login"
+    else
+      @errors = user.errors.full_messages
+      @user = User.new
+      render "new"
+    end
   end
 
   def edit
