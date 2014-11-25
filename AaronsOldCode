@@ -11,6 +11,79 @@
 		<div class="row">
 			<nav class="col-xs-12 navbar-inverse margin-inverse" role="navigation">
 				<div class="container">
+					<%= render partial: current_user ? "/shared/user_nav" : "/shared/non_user_nav" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%= yield %>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+	<div class="col-xs-6">
+		<div class="navbar-header">
+			<a href="/" action="/welcome" method="get" class="navbar-brand">MusicMap</a>
+		</div>
+	</div>
+	<div class="col-xs-1 navbar-links">
+		<%= link_to "Login", login_path, method: :get %>
+	</div>
+	<div class="col-xs-1 navbar-links">
+		<%= link_to "Sign Up", new_user_path, method: :get %>
+	</div>
+	<div class="col-xs-4 navbar-search">
+		<form role="form" action="/artist" method="get">
+			<input type="text" class="form-control search-font-color navbar-search-font" name="query" placeholder="Search">
+		</form>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DiscOvery</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<nav class="col-xs-12 navbar-inverse margin-inverse" role="navigation">
+				<div class="container">
 					<div class="navbar-header">
 						<a href="/" action="/welcome" method="get" class="navbar-brand">MusicMap</a>
 						<form role="form" action="/artist" method="get" class="navbar-form navbar-left" role="form" action="/artist" method="get">

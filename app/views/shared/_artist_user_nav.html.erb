@@ -1,0 +1,19 @@
+<!-- ARTIST USER PAGE -->
+<div class="row">
+	<div class="col-xs-5">
+		<div class="navbar-header">
+			<a href="/" action="/welcome" method="get" class="navbar-brand">MusicMap</a>
+		</div>
+	</div>
+	<div class="col-xs-2 navbar-links view-profile">
+		<%= link_to "View Profile", current_user, method: :get %>
+	</div>
+	<div class="col-xs-1 logout">
+		<%= link_to "Logout", logout_path, method: :delete %>
+	</div>
+	<div class="col-xs-4 navbar-search">
+		<form role="form" action="/artist" method="get">
+			<input type="text" class="form-control search-font-color navbar-search-font" name="query" placeholder="Search">
+		</form>
+	</div>
+</div>

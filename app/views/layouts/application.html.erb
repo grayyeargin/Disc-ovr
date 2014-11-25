@@ -7,16 +7,6 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<nav class="col-xs-12 navbar-inverse margin-inverse" role="navigation">
-				<div class="container">
-					<%= render partial: current_user ? "/shared/user_nav" : "/shared/non_user_nav" %>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 <%= yield %>
 </body>
 </html>
