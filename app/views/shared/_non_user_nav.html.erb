@@ -3,7 +3,11 @@
 <div class="row">
 	<div class="col-xs-6">
 		<div class="navbar-header">
-			<a href="/" action="/welcome" method="get" class="navbar-brand">MusicMap</a>
+			<form action="/" method="get">
+				<input type="submit" value="MusicMapv2">
+				</input>
+			</form>
+			<a href="/" class="navbar-brand">MusicMap</a>
 			<form role="form" action="/artist" method="get" class="navbar-form navbar-left" role="form" action="/artist" method="get"></form>
 		</div>
 	</div>
@@ -14,6 +18,8 @@
 		<%= link_to "Sign Up", new_user_path, method: :get %>
 	</div>
 	<div class="col-xs-4 navbar-search">
-		<input type="text" class="form-control col-lg-8" name="query" placeholder="Search">
+		<input type="text" class="form-control col-lg-8 search-query" name="query" placeholder="Search">
 	</div>
+	<p class="search-error-msg">
+	</p>
 </div>
