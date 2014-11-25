@@ -1,0 +1,24 @@
+<!-- USER WELCOME PAGE -->
+
+
+<div class="row">
+	<div class="col-xs-7">
+		<div class="navbar-header">
+			<a href="/" class="navbar-brand">MusicMap</a>
+		</div>
+	</div>
+	<div class="col-xs-2 navbar-links view-profile">
+		<%= link_to "View Profile", current_user, method: :get %>
+	</div>
+	<div class="col-xs-1 logout">
+		<%= link_to "Logout", logout_path, method: :delete %>
+	</div>
+	<div class="col-xs-2 current-users-name">
+		<p>welcome &nbsp; <%= current_user.first_name.titleize %></p>
+	</div>
+<!-- 	<div class="col-xs-1">
+	</div> -->
+</div>
+
+
+

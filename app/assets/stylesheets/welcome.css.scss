@@ -1,38 +1,28 @@
+.navbar-brand {
+	font-size: 25px;
+	letter-spacing: 5px;
+}
+
 .navbar-inverse {
 	margin-bottom: 20px;
 }
 
 .welcome-text {
-	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-top: 70px;
+	margin-bottom: 45px;
+	color: gray;
 }
 
 .main-search-box {
-	border-radius: 4px 4px 0px 0px !important;
-	height: 80px;
+	border-radius: 4px 4px 4px 4px !important;
+	height: 75px;
 	font-size: 35px;
-	color: white;
-	width: 650px !important;
+	width: 625px !important;
 	background-color: white;
 	text-align: center;
 	width: 50%;
 	margin: 0 auto;
-
-}
-
-.main-submit-button {
-	border-radius: 0px 0px 4px 4px !important;
-	font-size: 20px !important;
-	height: 55px;
-	width: 650px !important;
-	width: 50%;
-	margin: 0 auto;
-	background-color: #00bc8c;
-	color: white;
-}
-
-.search-font-color {
-	color: darkslategray;
+	color: green !important;
 }
 
 .all-tiles img {
@@ -54,7 +44,33 @@
 }
 
 .navbar-search {
-	margin-top: 7px;
+	margin-top: 8px;
 	width: 350px;
 }
 
+.navbar-search-font {
+	font-size: 20px !important;
+}
+
+.view-profile {
+	display: inline-block;
+	margin: 20px 0px 0px 0px;
+	padding: 0px 0px 0px 80px;
+/*	background-color: red;
+*/}
+
+.logout {
+	display: inline-block;
+	margin: 20px 0px 0px 0px;
+/*	background-color: blue;
+*/	padding: 0px 0px 0px 10px;
+
+}
+
+.current-users-name {
+	display: inline-block;
+	margin: 18px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	/*	background-color: red;*/
+	font-size: 18px !important;
+}

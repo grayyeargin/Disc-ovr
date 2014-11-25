@@ -1,4 +1,17 @@
 
+
+<div class="container">
+	<div class="row">
+		<nav class="col-xs-12 navbar-inverse margin-inverse" role="navigation">
+			<div class="container">
+				<%= render partial: current_user ? "/shared/artist_user_nav" : "/shared/artist_nonuser_nav" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
 <div class="container">
 	<div class="row panel album-images">
 	<h4 class="h4-margin">Click to Preview</h4>
