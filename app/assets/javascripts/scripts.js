@@ -37,43 +37,43 @@ $(function(){
             }
         }
     });
-    $("#search-form").bind("submit", function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: 'https://api.spotify.com/v1/search',
-            method: 'get',
-            data: {
-                q: $("#query").val(),
-                type: 'artist'
-                },
-            success: function (response) {
-                if (response["artists"]["items"].length === 0) {
-                    $("#search-error-msg").html("this artist does not exist")
-                    }
-                else {
-                    $("#search-form").unbind('submit').submit()
-                    }
-                }
-           });
-        });
-    $(".search-query").bind("submit", function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: 'https://api.spotify.com/v1/search',
-            method: 'get',
-            data: {
-                q: $(".search-query").val(),
-                type: 'artist'
-                },
-            success: function (response) {
-                if (response["artists"]["items"].length === 0) {
-                    $(".search-error-msg").html("this artist does not exist")
-                    }
-                else {
-                    $(".search-query").unbind('submit').submit()
-                    }
-                }
-           });
-        });
+    // $("#search-form").bind("submit", function(e) {
+    //     e.preventDefault();
+    //     $.ajax({
+    //         url: 'https://api.spotify.com/v1/search',
+    //         method: 'get',
+    //         data: {
+    //             q: $("#query").val(),
+    //             type: 'artist'
+    //             },
+    //         success: function (response) {
+    //             if (response["artists"]["items"].length === 0) {
+    //                 $("#search-error-msg").html("this artist does not exist")
+    //                 }
+    //             else {
+    //                 $("#search-form").unbind('submit').submit()
+    //                 }
+    //             }
+    //        });
+    //     });
+    // $(".search-query").bind("submit", function(e) {
+    //     e.preventDefault();
+    //     $.ajax({
+    //         url: 'https://api.spotify.com/v1/search',
+    //         method: 'get',
+    //         data: {
+    //             q: $(".search-query").val(),
+    //             type: 'artist'
+    //             },
+    //         success: function (response) {
+    //             if (response["artists"]["items"].length === 0) {
+    //                 $(".search-error-msg").html("this artist does not exist")
+    //                 }
+    //             else {
+    //                 $(".search-query").unbind('submit').submit()
+    //                 }
+    //             }
+    //        });
+    //     });
 });
 
