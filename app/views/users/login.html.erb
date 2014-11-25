@@ -5,6 +5,11 @@
 
 
 			<form action="/sessions" method="post">
+
+
+			<% if @error %>
+				<%= @error %>
+			<% end %>
 				
 				<%= token_tag %>
 				<!-- Username -->
