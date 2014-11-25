@@ -1,48 +1,59 @@
+<%= form_for @user do |f| %>
 
-			<%= form_for @user do |f| %>
-			
+	<% if @errors %>
+		<div class="form_errors">
+			<h3>Form <%= @errors.count == 1 ? "ERROR" : "ERRORS" %></h3>
+			<ul>
+				<% @errors.each do |error|  %>
+				<li><%= error %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-				<!-- First Name -->
-				<div class="form-group">
-					<%= f.label :first_name, "Fist Name", :class => " control-label" %>
-					<div>
-						<%= f.text_field :first_name, :class => "form-control" %>
-					</div>
-				</div>
+	<!-- First Name -->
+	<div class="form-group">
+		<%= f.label :first_name, "Fist Name", :class => " control-label" %>
+		<div>
+			<%= f.text_field :first_name, :class => "form-control", id: "first-name" %>
+		</div>
+	</div>
 
-				<!-- Last Name -->
-				<div class="form-group">
-					<%= f.label :last_name, "Last Name" , :class => " control-label" %>
-					<div>
-						<%= f.text_field :last_name, :class => "form-control" %>
-					</div>
-				</div>
+	<!-- Last Name -->
+	<div class="form-group">
+		<%= f.label :last_name, "Last Name" , :class => " control-label" %>
+		<div>
+			<%= f.text_field :last_name, :class => "form-control", id: "last-name" %>
+		</div>
+	</div>
 
-				<!-- User Name -->
-				<div class="form-group">
-					<%= f.label :username, :class => "control-label" %>
-					<div>
-						<%= f.text_field :username, :class => "form-control" %>
-					</div>
-				</div>
+	<!-- User Name -->
+	<div class="form-group">
+		<%= f.label :username, :class => "control-label" %>
+		<div>
+			<%= f.text_field :username, :class => "form-control", id: "username" %>
+		</div>
+	</div>
 
-				<!-- Password -->
-				<div class="form-group">
-					<%= f.label :password, :class => " control-label" %>
-					<div>
-						<%= f.text_field :password, :class => "form-control" %>
-					</div>
-				</div>
+	<!-- Password -->
+	<div class="form-group">
+		<%= f.label :password, :class => " control-label" %>
+		<div>
+			<%= f.text_field :password, :class => "form-control" %>
+		</div>
+	</div>
 
-				<!-- Image -->
-				<div class="form-group">
-					<%= f.label :avatar, "Avatar Image" , :class => " control-label" %>
-					<div>
-						<%= f.file_field :avatar %>
-					</div>
-				</div>
+	<!-- Image -->
+	<div class="form-group">
+		<%= f.label :avatar, "Avatar Image" , :class => " control-label" %>
+		<div>
+			<%= f.file_field :avatar %>
+		</div>
+	</div>
 
+	<button type="submit" class="btn btn-success">Submit</button>
 
-
-				<button type="submit" class="btn btn-success">Submit</button>
-			<% end %>
+	<h4 id="first-name-error">This is not a valid first name...</h4>
+	<h4 id="last-name-error">This is not a valid last name...</h4>
+	<h4 id="username-error">This is not a valid username...</h4>
+<% end %>
