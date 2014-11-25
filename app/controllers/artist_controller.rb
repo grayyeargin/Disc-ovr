@@ -54,11 +54,11 @@ class ArtistController < ApplicationController
 		end
 
 		# # ////////// TWITTER DATA //////////
-		# twitter_client = Twittersearch.new(query)
- 		# 	@twitter_results = twitter_client.twitter_query
+		twitter_client = Twittersearch.new(query)
+ 			@twitter_results = twitter_client.twitter_query
 
  		# ////////// REDDIT DATA //////////
- 		reddit_response = HTTParty.get("http://www.reddit.com/r/subreddit/search.json?q=#{query}&limit=20&sort=hot")
+ 		reddit_response = HTTParty.get("http://www.reddit.com/r/subreddit/search.json?q=#{query}&limit=10&sort=hot")
  		@reddit_results = []
  		if reddit_response["data"]["children"] != nil
  			reddit_response["data"]["children"].each do |link|

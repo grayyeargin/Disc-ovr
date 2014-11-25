@@ -1,3 +1,18 @@
+<div class="container">
+	<div class="row">
+		<nav class="col-xs-12 navbar-inverse margin-inverse" role="navigation">
+			<div class="container">
+				<%= render partial: current_user ? "/shared/welcome_user_nav" : "/shared/welcome_non_user_nav" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
 <!-- artist nonuser navbar taken out to get to a working base -->
 <div class="row">
 	<div class="col-xs-6">

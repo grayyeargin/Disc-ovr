@@ -45,9 +45,9 @@ module ArtistHelper
     end
 
     def twitter_query
-      results = configure_client.search(@query+"+music", lang: "en", result_type: "recent")
+      results = configure_client.search(@query+"+music", lang: "en", result_type: "recent", count: 10)
 
-      results[:statuses].map do |tweet|
+      results.attrs[:statuses].map do |tweet|
         {
           text: tweet[:text],
           user_image: tweet[:user][:profile_image_url],

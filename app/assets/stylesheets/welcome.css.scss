@@ -1,6 +1,7 @@
 .navbar-brand {
 	font-size: 25px;
 	letter-spacing: 5px;
+	background-color: transparent;
 }
 
 .navbar-inverse {
@@ -10,7 +11,7 @@
 .welcome-text {
 	margin-top: 70px;
 	margin-bottom: 45px;
-	color: gray;
+	color: white;
 }
 
 .main-search-box {
@@ -22,7 +23,7 @@
 	text-align: center;
 	width: 50%;
 	margin: 0 auto;
-	color: green !important;
+	color: darkslategrey !important;
 }
 
 .all-tiles img {

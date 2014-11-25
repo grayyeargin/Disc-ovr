@@ -14,12 +14,12 @@
 
 <div class="container">
 	<div class="row panel album-images">
-	<h4 class="h4-margin">Click to Preview</h4>
-	<% @albums_sorted_unique.each do |album| %>
+<!-- 		<h4 class="h4-margin">Click to Preview</h4> -->
+		<% @albums_sorted_unique.each do |album| %>
 		<div class="col-xs-1">
 			<img src="<%= album[:album_image] %>" class="img-responsive cover" alt="responsive image" data-album-id="<%= album[:album_id] %>">
 		</div>
-	<% end %>
+		<% end %>
 	</div>
 </div>
 <div class="container">
@@ -93,35 +93,62 @@
 
 
 <!-- Add Twitter Here -->
+<div class="container">
+	<div class="row panel">
+		<div class="col-xs-8">
+			<% @reddit_results.each do |link| %>
+			<div class="reddit clearfix">
+				<div class="reddit-ups">
+					<div class="arrow-up"></div>
+					<div class="arrow-up-box"></div>
+					<p><%= link[:ups] %></p>
+					<div class="arrow-down-box"></div>
+					<div class="arrow-down"></div>
+				</div>
+				<div class="reddit-thumbnail">
+					<% if link[:thumbnailurl] == "" || link[:thumbnailurl] == "nsfw" || link[:thumbnailurl] == "self" %>
+					<img src="/assets/reddit_img.png" class="reddit-thumbnail-img">
+					<% else %>
+					<img src="<%= link[:thumbnailurl] %>" class="reddit-thumbnail-img">
+					<% end %>
+				</div>
+				<div class="reddit-text clearfix">
+					<p class="reddit-title">
+						<a href="<%= link[:permalink] %>"><%= link[:title] %></a>
+					</p>
+					<p class="reddit-author">submitted at <%= link[:created_utc] %> by <%= link[:author] %></p>
+					<p class="reddit-comments"><%= link[:num_comments] %> comments</p>
+				</div>
+			</div>
+			<% end %>
+		</div>
+		<div class="col-xs-4">
+			<div class="tweets-container">
+				<% @twitter_results.each do |tweet| %>
+				<blockquote class="twitter-tweet">
+					<div>
+						<div class="tweet-img-left">
+							<img src="<%= tweet[:user_image] %>" alt="<%= tweet[:user] %>" class="tweet-image">
+						</div>
 
-
-
-
-
-
-<% @reddit_results.each do |link| %>
-<div class="reddit clearfix">
-	<div class="reddit-ups">
-		<div class="arrow-up"></div>
-		<div class="arrow-up-box"></div>
-		<p><%= link[:ups] %></p>
-		<div class="arrow-down-box"></div>
-		<div class="arrow-down"></div>
-	</div>
-	<div class="reddit-thumbnail">
-		<% if link[:thumbnailurl] == "" || link[:thumbnailurl] == "nsfw" || link[:thumbnailurl] == "self" %>
-		<img src="/assets/reddit_img.png" class="reddit-thumbnail-img">
-		<% else %>
-		<img src="<%= link[:thumbnailurl] %>" class="reddit-thumbnail-img">
-		<% end %>
-	</div>
-	<div class="reddit-text clearfix">
-		<p class="reddit-title">
-			<a href="<%= link[:permalink] %>"><%= link[:title] %></a>
-		</p>
-		<p class="reddit-author">submitted at <%= link[:created_utc] %> by <%= link[:author] %></p>
-		<p class="reddit-comments"><%= link[:num_comments] %> comments</p>
+						<div class="tweet-text-right">
+							<strong class="tweet-user"><%= tweet[:user] %></strong>
+							<span class="user-screen-name">@<%= tweet[:screen_name] %></span>
+							<span>&#8226;</span>
+							<span class="user-screen-name"><%= time_ago_in_words(tweet[:created_at]) %> ago</span>
+						</br>
+						<p><%= tweet[:text] %></p>
+					</div>
+				</div>
+			</blockquote>
+			<% end %>
+		</div>
 	</div>
 </div>
-<% end %>
+
+
+
+
+
+
 

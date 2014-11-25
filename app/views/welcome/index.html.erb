@@ -4,11 +4,14 @@
 	<div class="row">
 		<nav class="col-xs-12 navbar-inverse margin-inverse" role="navigation">
 			<div class="container">
-				<%= render partial: current_user ? "/shared/welcome_user_nav" : "/shared/welcome_non_user_nav" %>
-			</div>
+				<form action="/" method="get">
+					<input type="submit" class="navbar-brand" value="MusicMap">
+				</input>
+			</form>
 		</div>
 	</div>
 </div>
+
 
 
 
@@ -192,13 +195,13 @@
 			</div>
 
 
-			
+
 
 
 			<div closs="welcome-form">
 				<form role="form" action="/artist" method="get" id="search-form">
 					<input type="text" class="form-control main-search-box search-font-color" name="query" placehoder="Search our mousic database!" id="query">
-					<input type="submit" class="form-control main-submit-button" value="Search">
+					<!-- <input type="submit" class="form-control main-submit-button" value="Search"> -->
 				</form>
 				<p id="search-error-msg">
 				</p>
