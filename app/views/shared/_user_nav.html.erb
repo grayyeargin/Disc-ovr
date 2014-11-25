@@ -1,0 +1,19 @@
+<div>
+	<h4>Welcome <%= current_user.first_name %></h4>
+	<%= button_to "logout", logout_path, method: :delete %>
+</div>
+
+
+
+<div class="container">
+		<div class="row">
+			<nav class="col-xs-12 navbar-inverse margin-inverse" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<a href="http://localhost:3000" class="navbar-brand">MusicMap</a>
+						<form role="form" action="/artist" method="get" class="navbar-form navbar-left" role="form" action="/artist" method="get">
+							<input type="text" class="form-control col-lg-8 search-query" name="query" placeholder="Search">
+						</form>
+						<p class="search-error-msg"></p>
+					</div>
+				</div>
