@@ -3,6 +3,9 @@ class ArtistController < ApplicationController
 	include ArtistHelper
 
 	def index
+    # this action is pretty intense.  is there a way that you could potentially abstract
+    # this logic out to a module or break it into methods?  I think it would be a good
+    # exercise for you guys.
 
 		# ////////// ARTIST'S SPOTIFY ID & MAIN PHOTO & NAME //////////
 		query = params[:query]

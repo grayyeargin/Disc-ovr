@@ -1,3 +1,5 @@
+# very readable! :P
+
 class SessionsController < ApplicationController
 
   def login

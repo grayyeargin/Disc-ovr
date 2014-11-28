@@ -1,6 +1,14 @@
 module ArtistHelper
 
-
+  # this could probably be refactored to use claass level methods that take and id.
+  # Then, you won't need to call.new in order to use the method.  The method invocation
+  # would look something like
+  #
+  #  Spotifysearch.grab_unique_albums(artist_id)
+  #
+  # also, this module should probably be included in your /lib directory as it is not
+  # related to view helpers.  Here is a resource that may be of use to you:
+  # http://www.benfranklinlabs.com/where-to-put-rails-modules/
   class Spotifysearch
     attr_reader :artist_id
     def initialize(artist_id)
@@ -28,7 +36,7 @@ module ArtistHelper
   end
 
 
-
+  # See above.
 
 
   class Twittersearch

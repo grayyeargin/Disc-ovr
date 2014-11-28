@@ -1,3 +1,5 @@
+# this looks nice and clean.  good work. :)
+
 class UsersController < ApplicationController
 
   def index
