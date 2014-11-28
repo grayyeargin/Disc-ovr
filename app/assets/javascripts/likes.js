@@ -1,3 +1,8 @@
+// this is great.  this function might more appropriately be titles
+// setLikeButtonHandler ... or something to indicate that its
+// not actually creating a like, but is setting event handlers
+// on a button.
+
 $(function(){
 
 

@@ -1,8 +1,11 @@
+
+// nice comma seperated variable declaration.
+
 var resultsPlaceholder = document.getElementById('results'),
     playingCssClass = 'playing',
     audioObject = null;
 
-
+// good understanding of callbacks
 var fetchTracks = function (albumId, callback) {
     $.ajax({
         url: 'https://api.spotify.com/v1/albums/' + albumId,
@@ -12,6 +15,10 @@ var fetchTracks = function (albumId, callback) {
     });
 };
 
+// there are some pretty deeply nested callbacks here.
+// consider breaking this code out into multiple functions.
+// it would definitely be of benefit from a code quality
+// perspective.
 $(function(){
    var results = $('.cover')
     results.on('click', function(e) {
@@ -37,6 +44,11 @@ $(function(){
             }
         }
     });
+
+    // take care to remove commented code from your production
+    // source.
+
+
     // $("#search-form").bind("submit", function(e) {
     //     e.preventDefault();
     //     $.ajax({

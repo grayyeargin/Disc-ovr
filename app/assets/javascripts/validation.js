@@ -1,3 +1,5 @@
+// SWEET CLIENT SIDE VALIDATIONS :)
+
 $(function(){
 
 	var $firstNameInput = $('#first-name');
