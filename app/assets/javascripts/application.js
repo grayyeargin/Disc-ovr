@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require cycle2
 //= require turbolinks
 //= require_tree .
 
