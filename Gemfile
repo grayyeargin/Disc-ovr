@@ -50,5 +50,5 @@ gem 'twitter'
 
 gem "paperclip", "~> 4.1"
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
