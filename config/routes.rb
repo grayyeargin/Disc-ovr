@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'errors/internal_server_error'
+
   get 'welcome/index'
   root 'welcome#index'
 
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   resources :artist
 
   resources :users
+
+  match '/500', to: 'errors#internal_server_error', via: :all
 
 
 
