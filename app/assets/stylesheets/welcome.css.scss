@@ -27,10 +27,8 @@
 }
 
 .all-tiles img {
-	min-width: 98px;
-	min-height: 98px;
-	max-height: 98px;
-	max-width: 98px;
+	width: 98px;
+	height: 98px;
 	border-radius: 0px;
 	border-width: 0px;
 }
@@ -74,4 +72,41 @@
 	padding: 0px 0px 0px 0px;
 	/*	background-color: red;*/
 	font-size: 18px !important;
+}
+
+
+/*Media Queries*/
+
+@media (max-width: 1200px) {
+    .all-tiles {
+    	width: 800px;
+    }
+
+    .all-tiles img {
+    	width: 65px;
+    	height: 65px;
+    }
+
+    .main-search-box {
+			border-radius: 4px 4px 4px 4px !important;
+			height: 60px;
+			font-size: 30px;
+			width: 400px !important;
+			background-color: white;
+			text-align: center;
+			width: 50%;
+			margin: 0 auto;
+			color: darkslategrey !important;
+		}
+
+		.welcome-text {
+			margin-top: 30px;
+			margin-bottom: 30px;
+			color: white;
+			font-size: 25px;
+		}
+
+		.media-width {
+			width: 800px;
+		}
 }
