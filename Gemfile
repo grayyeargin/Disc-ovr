@@ -46,6 +46,8 @@ gem 'pry'
 
 gem 'youtube_it'
 
+gem 'yt'
+
 gem 'twitter'
 
 gem "paperclip", "~> 4.1"

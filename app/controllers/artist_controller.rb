@@ -6,8 +6,8 @@ class ArtistController < ApplicationController
 
 		# ////////// ARTIST'S SPOTIFY ID & MAIN PHOTO & NAME //////////
 		query = params[:query]
-		query = query.gsub(' ', '%20')
-		artist_api_response = HTTParty.get("https://api.spotify.com/v1/search?q=#{query}&type=artist")
+		query_url = query.gsub(' ', '%20')
+		artist_api_response = HTTParty.get("https://api.spotify.com/v1/search?q=#{query_url}&type=artist")
 		@artist_image = artist_api_response["artists"]["items"][0]["images"][0]["url"]
 		artist_id = artist_api_response["artists"]["items"][0]["id"]
 		@artist_name = artist_api_response["artists"]["items"][0]["name"]
@@ -19,46 +19,37 @@ class ArtistController < ApplicationController
 
 
 		# ////////// ARTIST BIO //////////
-		last_fm_artist = HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=#{query}&api_key=0689c53570fb3e20176681c7b9d7aa30")
+		last_fm_artist = HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=#{query_url}&api_key=0689c53570fb3e20176681c7b9d7aa30")
 		@last_fm_artist_bio = last_fm_artist["lfm"]["artist"]["bio"]["summary"]
 
 
 
 		# ////////// YOUTUBE //////////
-		client = YouTubeIt::Client.new(:dev_key => "AIzaSyDnXMoqvyuUGI9kF5txoG5GKE5QXcp4rWk")
-		youtube_api_response_all = client.videos_by(:query => "#{query}", :page => 1, :per_page => 50)
-		vevo_videos = []
-		non_vevo_videos = []
-		youtube_api_response_all.videos.each do |video|
-			if video.author.name.include?("VEVO")
-				vevo_videos << video.unique_id
-			else
-				non_vevo_videos << video.unique_id
+		videos = Yt::Collections::Videos.new
+		youtube_api_response_vevo = videos.where(q: "#{query} music", order: 'viewCount').first(3)
+		youtube_videos = []
+
+		if youtube_api_response_vevo.count >= 3
+			youtube_api_response_vevo.each do |video|
+				youtube_videos << video.id
+			end
+		else
+			youtube_api_response_music = videos.where(q: "#{query} music", order: 'viewCount').first(3)
+			youtube_api_response_music.each do |video|
+				youtube_videos << video.id
 			end
 		end
 
-		if vevo_videos[0] != nil
-			@video_0 = vevo_videos[0]
-		else
-			@video_0 = non_vevo_videos[0]
-		end
-		if vevo_videos[1] != nil
-			@video_1 = vevo_videos[1]
-		else
-			@video_1 = non_vevo_videos[1]
-		end
-		if vevo_videos[2] != nil
-			@video_2 = vevo_videos[2]
-		else
-			@video_2 = non_vevo_videos[2]
-		end
+		@video_0 = youtube_videos[0]
+		@video_1 = youtube_videos[1]
+		@video_2 = youtube_videos[2]
 
 		# # ////////// TWITTER DATA //////////
 		twitter_client = Twittersearch.new(query)
  			@twitter_results = twitter_client.twitter_query
 
  		# ////////// REDDIT DATA //////////
- 		reddit_response = HTTParty.get("http://www.reddit.com/r/subreddit/search.json?q=#{query}&limit=10&sort=hot")
+ 		reddit_response = HTTParty.get("http://www.reddit.com/r/subreddit/search.json?q=#{query_url}%20music&limit=10&sort=hot")
  		@reddit_results = []
  		if reddit_response["data"]["children"] != nil
  			reddit_response["data"]["children"].each do |link|
