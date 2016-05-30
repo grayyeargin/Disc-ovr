@@ -17,11 +17,9 @@ class ArtistController < ApplicationController
 		@albums_sorted_unique = spotify_query.grab_unique_albums
 
 
-
 		# ////////// ARTIST BIO //////////
 		last_fm_artist = HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=#{query_url}&api_key=0689c53570fb3e20176681c7b9d7aa30")
 		@last_fm_artist_bio = last_fm_artist["lfm"]["artist"]["bio"]["summary"]
-
 
 
 		# ////////// YOUTUBE //////////
@@ -49,7 +47,7 @@ class ArtistController < ApplicationController
  			@twitter_results = twitter_client.twitter_query
 
  		# ////////// REDDIT DATA //////////
- 		reddit_response = HTTParty.get("http://www.reddit.com/r/subreddit/search.json?q=#{query_url}%20music&limit=10&sort=hot")
+ 		reddit_response = HTTParty.get("https://www.reddit.com/r/subreddit/search.json?q=#{query_url}%20music&limit=10&sort=hot", :headers => {"User-agent" => "Music Map API"})
  		@reddit_results = []
  		if reddit_response["data"]["children"] != nil
  			reddit_response["data"]["children"].each do |link|
