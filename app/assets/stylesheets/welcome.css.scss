@@ -5,16 +5,17 @@
 }
 
 .welcome-text {
-	margin-top: 70px;
-	margin-bottom: 45px;
+	margin-top: 50px;
+	margin-bottom: 20px;
 	color: white;
+	font-size: 20px;
 }
 
 .main-search-box {
 	border-radius: 4px 4px 4px 4px !important;
-	height: 75px;
+	height: 60px;
 	font-size: 35px;
-	width: 625px !important;
+	width: 400px !important;
 	background-color: white;
 	text-align: center;
 	width: 50%;
@@ -74,7 +75,7 @@
 .center-error{
 	height: 100vh;
 	width: 100vw;
-	background: url('http://blogs.sps.ed.ac.uk/copyrightandcreators/files/2014/01/Guitar-Broken.jpg') no-repeat center center fixed;
+	background: url('http://orig00.deviantart.net/9295/f/2011/009/8/2/broken_guitars__blues_version__by_trailerparksaints-d36s7et.jpg') no-repeat center center fixed;
 	background-size: cover;
 	text-align: center;
 }
@@ -91,11 +92,20 @@
 	margin-top: 100px;
 }
 
-header {
+/*header {
 	width: 100%;
 	position: relative;
 	z-index: 1;
-	background-color: #00bc8c;
+}*/
+
+.title-img {
+	text-align: center;
+}
+
+.title-img img {
+	width: 100%;
+	max-width: 380px;
+	position: relative;
 }
 
 
@@ -121,13 +131,14 @@ header {
 			width: 50%;
 			margin: 0 auto;
 			color: darkslategrey !important;
+			max-width: 100%;
 		}
 
 		.welcome-text {
-			margin-top: 30px;
-			margin-bottom: 30px;
+			margin-top: 50px;
+			margin-bottom: 20px;
 			color: white;
-			font-size: 25px;
+			font-size: 20px;
 		}
 
 		.media-width {
@@ -151,7 +162,7 @@ header {
 
 .background-slideshow:before {
 	content: '';
-	opacity: .5;
+	opacity: .6;
 	position: fixed;
   width: 100%;
   height: 100%;
