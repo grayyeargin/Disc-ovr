@@ -3,12 +3,14 @@ module ArtistHelper
 
   class Spotifysearch
     attr_reader :artist_id
-    def initialize(artist_id)
+    def initialize(artist_id, spotify_auth)
       @artist_id = artist_id
+      @spotify_auth = spotify_auth
     end
 
     def grab_unique_albums
-      album_api_response = HTTParty.get("https://api.spotify.com/v1/artists/#{artist_id}/albums")
+      album_api_response = HTTParty.get("https://api.spotify.com/v1/artists/#{artist_id}/albums",
+       :headers => {"Authorization" => "Bearer #{@spotify_auth['access_token']}"})
 
       albums_sorted = album_api_response["items"].map do |album|
         {
