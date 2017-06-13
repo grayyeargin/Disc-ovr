@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 
-api_keys.rb
+# Ignore application configuration
+/config/application.yml

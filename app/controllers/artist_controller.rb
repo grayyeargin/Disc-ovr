@@ -1,5 +1,3 @@
-require './api_keys'
-
 class ArtistController < ApplicationController
 
 	include ArtistHelper
@@ -7,7 +5,7 @@ class ArtistController < ApplicationController
 	def index
 
 		# ////////// ARTIST'S SPOTIFY ID & MAIN PHOTO & NAME //////////
-		client_id_and_secret = Base64.strict_encode64("#{$api_keys[:client_id]}:#{$api_keys[:client_secret]}")
+		client_id_and_secret = Base64.strict_encode64("#{ENV["client_id"]}:#{ENV["client_secret"]}")
 		spotify_auth = HTTParty.post("https://accounts.spotify.com/api/token",
     	:body => { :grant_type => "client_credentials"
     		},
